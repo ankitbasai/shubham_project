@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadat:
+  name: pod1
+  label:
+    app: test
+spec:
+   continers:
+   - image: nginx
+     name:  nginx
+
+
