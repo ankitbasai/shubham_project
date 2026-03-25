@@ -1,0 +1,17 @@
+version: apps/v1
+kind: ReplicaSet
+metadata:
+  name: pod
+spec:
+   replicas: 4
+   selectors:
+     app: test
+   template:
+     metadata:
+       name: pod
+       lables:
+         app: test
+     spec:
+       containers:
+       - image: nginx
+         name: nginx
