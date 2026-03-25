@@ -1,8 +1,0 @@
-version: apps/v1\
-kind: ReplicaSets
-metadata:
-  name: rc
-spec:
-     replicas: 5
-     selectors:
-       app: test
