@@ -1,0 +1,3 @@
+version: apps/v1
+kind: ReplicaSets
+metadata:
