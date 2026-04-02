@@ -17,3 +17,6 @@ services:
          - ./my_backup/:/var/www/html
       networks:
          - Anet
+
+networks:
+ Anet:
