@@ -1,5 +1,5 @@
 FROM httpd
 LABEL maintainer="ankitrajpur123"
-run mkdir -p /var/www/html
+run mkdir -p /love/shubham
 WORKDIR /ankit
 COPY . /var/www/html
