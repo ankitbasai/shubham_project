@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ankit Love Shubham</title>
+    <title>Ankit ❤️ Shubham Slideshow</title>
     <style>
         body {
             background-color: #000; /* Black background */
@@ -36,31 +36,38 @@
             to { transform: scale(1.2); }
         }
 
-        .container {
-            display: flex;
-            gap: 20px;
-        }
-
-        .photo-frame {
-            width: 250px;
-            height: 350px;
+        /* Slideshow Container */
+        .slideshow-container {
+            width: 300px;
+            height: 400px;
             border: 3px solid #fff;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            position: relative; /* Image positioning ke liye */
         }
 
-        .photo-frame img {
+        /* Image styling */
+        .mySlides {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Photo ko frame mein sahi se fit karne ke liye */
+            object-fit: cover;
+            position: absolute; /* Images ek ke upar ek rahengi */
+            top: 0;
+            left: 0;
+            opacity: 0; /* Shuru mein sari images hidden hongi */
+            transition: opacity 1s ease-in-out; /* Fade effect ke liye */
         }
 
-        /* Mobile ke liye responsive design */
+        /* Jo image active hai usse dikhana */
+        .mySlides.fade-in {
+            opacity: 1;
+        }
+
+        /* Mobile responsive */
         @media (max-width: 600px) {
             .header { font-size: 2rem; }
-            .container { flex-direction: column; }
-            .photo-frame { width: 200px; height: 280px; }
+            .slideshow-container { width: 250px; height: 330px; }
         }
     </style>
 </head>
@@ -70,15 +77,37 @@
         Ankit <span class="heart">❤️</span> Shubham
     </div>
 
-    <div class="container">
-        <div class="photo-frame">
-            <img src="https://images2.imgbox.com/7d/5c/j7ZtF6G0_o.jpg" alt="Ankit Photo">
-        </div>
-
-        <div class="photo-frame">
-            <img src="https://images2.imgbox.com/4c/76/8YF90GkH_o.jpg" alt="Shubham Photo">
-        </div>
+    <div class="slideshow-container">
+        <img class="mySlides" src="ankit.jpg" alt="Ankit Photo">
+        <img class="mySlides" src="shubham.jpg" alt="Shubham Photo">
     </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("mySlides");
+
+        function showSlides() {
+            // Sari images se fade-in class hatana
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("fade-in");
+            }
+
+            // Agli image set karna
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1; // Wapas pehli photo pe aana
+            }
+
+            // Current image pe fade-in class lagana
+            slides[slideIndex - 1].classList.add("fade-in");
+
+            // Har 3 second baad agli photo dikhana
+            setTimeout(showSlides, 3000); 
+        }
+
+        // Slideshow shuru karna
+        showSlides();
+    </script>
 
 </body>
 </html>
