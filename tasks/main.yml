@@ -1,0 +1,12 @@
+--- 
+    - name: user
+      user:
+           name: "{{user_1}}"
+           state: present
+    - name: file
+      file:
+           path: "{{path_1}}"
+           owner: "{{owner_1}}"
+           state: touch
+      notify: abc
+
